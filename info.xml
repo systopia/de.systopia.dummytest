@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <extension key="de.systopia.dummytest" type="module">
   <file>dummytest</file>
-  <name>Dumm Test</name>
+  <name>Dummy Test</name>
   <description>Dummy Test Extension for Docker integration</description>
   <license>AGPL-3.0</license>
   <maintainer>
