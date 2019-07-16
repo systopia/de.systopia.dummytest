@@ -43,13 +43,13 @@ class api_v3_Contact_LookupContactTest extends \PHPUnit_Framework_TestCase {
    * Note how the function name begins with the word "test".
    */
   public function testApiExample() {
-    $result = civicrm_api3('Contact', 'get  ', [
-      'id' => 1,
-    ]);
     $result = civicrm_api3('Contact', 'lookupcontact', [
       'contact_id' => 1,
     ]);
-    $this->assertEquals('1', $result['values']['id']['1']);
+    if ($result['values']['id']['1'] != 1) {
+      throw new Exception("Dummy test failed");
+    }
+    print "Dummy test successful";
   }
 
 }
