@@ -15,4 +15,11 @@ cv en dummytest
 
 # test extension
 cd $EXTENSION_NAME
+EXT_PATH = pwd
+cd tests/phpunit/api/v3/Contact
+cv php:boot > bootstrap_civicrm
+sed -e '/\/\/BOOTSTRAP_ME/{r bootstrap_php' -e 'd}' LookupContactTest.php -i
+rm bootstrap_civicrm
+cd $EXT_PATH
+# TDOO: check if code is already existant
 phpunit4
