@@ -1,5 +1,6 @@
 <?php
 
+use CRM_Dummytest_ExtensionUtil as E;
 use Civi\Test\HeadlessInterface;
 use Civi\Test\HookInterface;
 use Civi\Test\TransactionalInterface;
@@ -10,16 +11,16 @@ use Civi\Test\TransactionalInterface;
  * @group headless
  */
 class api_v3_Contact_LookupContactTest extends \PHPUnit_Framework_TestCase {
-  use \Civi\Test\Api3TestTrait;
+//  use \Civi\Test\Api3TestTrait;
 
   /**
    * Civi\Test has many helpers, like install(), uninstall(), sql(), and sqlFile().
    * See: https://docs.civicrm.org/dev/en/latest/testing/phpunit/#civitest
    */
   public function setUpHeadless() {
-    return \Civi\Test::headless()
-      ->installMe(__DIR__)
-      ->apply();
+//    return \Civi\Test::headless()
+//      ->installMe(__DIR__)
+//      ->apply();
   }
 
   /**
@@ -37,16 +38,23 @@ class api_v3_Contact_LookupContactTest extends \PHPUnit_Framework_TestCase {
     parent::tearDown();
   }
 
+  private function bootstrap_civicm() {
+    //BOOTSTRAP_ME
+  }
+
   /**
    * Simple example test case.
    *
    * Note how the function name begins with the word "test".
    */
   public function testApiExample() {
+
+    $this->bootstrap_civicm();
+
     $result = civicrm_api3('Contact', 'lookupcontact', [
-      'contact_id' => 1,
+      'contact_id' => '1',
     ]);
-    if ($result['values']['id']['1'] != 1) {
+    if ($result['values']['contact_id'] != "1") {
       throw new Exception("Dummy test failed");
     }
     print "Dummy test successful";
