@@ -29,9 +29,8 @@ function civicrm_api3_contact_Lookupcontact($params) {
     'id' => $params['contact_id'],
   ]);
 
-  if ($result['is_error'] == 0 && isset($result[id])) {
-
-    return civicrm_api3_create_success(['id' => $result['id']], $params, 'Contact', 'LookupContact');
+  if ($result['is_error'] == 0 && isset($result['id'])) {
+    return civicrm_api3_create_success(['contact_id' => $result['id']], $result, 'Contact', 'LookupContact');
   } else {
     throw new API_Exception(/*errorMessage*/ 'Unknown error.', /*errorCode*/ 1234);
   }
