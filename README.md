@@ -35,6 +35,25 @@ git clone https://github.com/FIXME/de.systopia.dummytest.git
 cv en dummytest
 ```
 
+## Testing
+
+If you already have `docker` and `docker-compose` installed you can run the unit-tests with a very simple command:
+
+```
+cd resources/dockertests
+docker-compose up
+```
+
+this command does the following things
+- download docker-buildkit
+- run docker-buildkit and build a environment with drupal and civicrm installed
+- download the extension
+- install the extension into civicrm
+- run the unittests for the extension
+
+if you want to use the environment for further testing afterwards your can reach it unter: http://test.localhost:7979/
+
+
 ## Usage
 
 (* FIXME: Where would a new user navigate to get started? What changes would they see? *)
